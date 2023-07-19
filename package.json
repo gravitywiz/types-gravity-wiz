@@ -1,5 +1,5 @@
 {
-  "name": "types-gravity-wiz",
+  "name": "@gravitywiz/types",
   "version": "0.0.1",
   "description": "TypesScript type definitions for Gravity Forms and Gravity Wiz.",
   "main": "index.d.ts",
