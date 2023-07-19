@@ -1,0 +1,13 @@
+{
+  "name": "types-gravity-wiz",
+  "version": "0.0.1",
+  "description": "TypesScript type definitions for Gravity Forms and Gravity Wiz.",
+  "main": "index.d.ts",
+  "type": "module",
+  "author": "Gravity Wiz",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/jquery": "^3.5.16"
+  }
+}
