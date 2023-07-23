@@ -1,43 +1,67 @@
 /**
  * Type definitions for Gravity Forms.
  */
-
-export interface Form {
-}
-
-export interface Field {
-    id: number
-    formId: number
-    type: string
-    enableEnhancedUI: boolean
-    choices: MultiSelectChoice[]
-}
-
-export interface MultiSelectChoice {
-    isSelected: boolean;
-    price: string;
-    text: string;
-    value: string;
-}
-
-// TODO type ...any better (e.g. provide a way to for the caller to declare what these arguments should be).
-export type HookCallback = (...args: any[]) => void
-
 declare global {
-    interface Window {
-        jQuery: JQueryStatic
-        gform: {
-            addAction: (actionName: string, cb: HookCallback, priority?: number, tag?: string) => void;
-            addFilter: (filterName: string, cb: HookCallback, priority?: number, tag?: string) => void;
-            doAction: (actionName: string, ...any) => void;
-            applyFilters: (filterName: string, ...any) => any;
-            removeAction: (actionName: string, tag?:string) => void;
-            removeFilter: (actionName: string, priority?: number, tag?: string) => void;
-        }
-        field: Field
-        form: Form
-        UpdateFieldChoices: (fieldType: string) => void
-        SetFieldProperty: (setting: string, value: any) => void
-        SetFieldEnhancedUI: (enabled: boolean) => void
-    }
+	type GFFieldID = number | string;
+	type GFFormID = number | string;
+
+	interface GFField {
+		inputs: any;
+		choices: GFChoice[];
+		label: string;
+		adminLabel?: string;
+		id: number;
+		formId: number;
+		type: string;
+		enableEnhancedUI?: boolean;
+		inputType: string;
+	}
+
+	interface GFChoice {
+		isSelected?: boolean;
+		price?: string;
+		text: string;
+		value: string;
+	}
+
+	interface GFForm {
+		button: {
+			type: string;
+			text: string;
+			imageUrl: string;
+		};
+		confirmations: any;
+		description: string;
+		descriptionPlacement: string;
+		fields: GFField[];
+		firstPageCssClass: string;
+		id: number;
+		labelPlacement: string;
+		lastPageButton: string;
+		markupVersion: number;
+		nextFieldId: number;
+		notifications: any;
+		pagination: any;
+		postContentTemplate: string;
+		postContentTemplateEnabled: boolean;
+		postTitleTemplate: string;
+		postTitleTemplateEnabled: boolean;
+		title: string;
+		useCurrentUserAsAuthor: boolean;
+		version: string;
+		[key: string]: any;
+	}
+
+	interface GFConditionalLogicRuleField {
+		label: string;
+		value: string | number;
+	}
+
+	interface GFConditionalLogicRule {
+		fieldId: string;
+		operator: string;
+		value: number | string;
+	}
 }
+
+export {};

@@ -28,5 +28,5 @@ To use the ambient module definitions to make types available on the `window` ob
 This also supports importing individual types like so:
 
 ```ts
-import type { Field } from 'types-gravity-wiz/gravityforms';
+import type { GFField } from 'types-gravity-wiz/gravityforms';
 ```
