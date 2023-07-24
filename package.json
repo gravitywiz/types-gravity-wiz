@@ -1,14 +1,14 @@
 {
-  "name": "@gravitywiz/types",
-  "version": "0.0.2",
-  "description": "TypesScript type definitions for Gravity Forms and Gravity Wiz.",
-  "main": "index.d.ts",
-  "type": "module",
-  "author": "Gravity Wiz",
-  "license": "MIT",
-  "private": false,
-  "devDependencies": {
-    "@types/jquery": "^3.5.16",
-    "@types/plupload": "^2.0.10"
-  }
+	"name": "@gravitywiz/types",
+	"version": "0.0.2",
+	"description": "TypesScript type definitions for Gravity Forms and Gravity Wiz.",
+	"author": "Gravity Wiz",
+	"license": "MIT",
+	"main": "",
+	"types": "index.d.ts",
+	"private": false,
+	"devDependencies": {
+		"@types/jquery": "^3.5.16",
+		"@types/plupload": "^2.0.10"
+	}
 }
