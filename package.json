@@ -1,6 +1,6 @@
 {
 	"name": "@gravitywiz/types",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "TypesScript type definitions for Gravity Forms and Gravity Wiz.",
 	"author": "Gravity Wiz",
 	"license": "MIT",
