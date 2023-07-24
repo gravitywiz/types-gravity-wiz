@@ -2,9 +2,7 @@
 
 Herein find TypeScript definitions for Gravity Forms, Perks crafted by Gravity Wiz and other Gravity Forms plugins.
 
-# 🚀 Usage
-
-### Install
+## 💾 Installation
 
 ```sh
 yarn add -D types-gravity-wiz
@@ -15,18 +13,32 @@ or...
 npm install --save-dev types-gravity-wiz
 ```
 
-### Extending `window`
+## 🚀 Usage
 
-To use the ambient module definitions to make types available on the `window` object, reference the respective types files you need like this. (Make sure to the path is correct for your setup.)
+### `tsconfig.json`
 
-```ts
-/// <reference path="../../../node_modules/types-gravity-wiz/gravityforms.d.ts" />
+To make ambient types automatically available, you can add `@gravitywiz` to the TypeScript `typeRoots` like so:
+
+(By default, `node_modules/@types` is included in `typeRoots` and it's recommended to keep it.)
+
+```json
+{
+	"compilerOptions": {
+		"typeRoots": [
+			"node_modules/@types",
+			"node_modules/@gravitywiz"
+		]
+	}
+}
 ```
 
-### Importing types individually
+### `/// <reference path="..." />`
 
-This also supports importing individual types like so:
+To use the ambient module definitions without modifying `tsconfig.json`, you can load in the types using
+[`/// <reference path="..." />`](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-path-).
+
+(Make sure to the path is correct for your setup.)
 
 ```ts
-import type { GFField } from 'types-gravity-wiz/gravityforms';
+/// <reference path="../../../node_modules/@gravitywiz/types/index.d.ts" />
 ```
