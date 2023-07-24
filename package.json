@@ -7,7 +7,7 @@
 	"main": "",
 	"types": "index.d.ts",
 	"private": false,
-	"devDependencies": {
+	"dependencies": {
 		"@types/jquery": "^3.5.16",
 		"@types/plupload": "^2.0.10"
 	}
