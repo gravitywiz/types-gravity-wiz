@@ -5,12 +5,12 @@ Herein find TypeScript definitions for Gravity Forms, Perks crafted by Gravity W
 ## 💾 Installation
 
 ```sh
-yarn add -D types-gravity-wiz
+yarn add -D @gravitywiz/types
 ```
 
 or...
 ```sh
-npm install --save-dev types-gravity-wiz
+npm install --save-dev @gravitywiz/types
 ```
 
 ## 🚀 Usage
