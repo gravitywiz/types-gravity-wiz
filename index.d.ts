@@ -17,6 +17,7 @@ declare global {
 		type: string;
 		enableEnhancedUI?: boolean;
 		inputType: string;
+		productId: string;
 	}
 
 	interface GFChoice {
@@ -54,6 +55,29 @@ declare global {
 		[key: string]: any;
 	}
 
+	class GFConditionalLogic {
+		actionType: GFConditionalLogicActionType;
+		logicType: GFConditionalLogicLogicType;
+		rules: GFConditionalLogicRule[];
+	}
+
+	interface GFCurrencyConfig {
+		name: string;
+		symbol_left: string;
+		symbol_right: string;
+		symbol_padding: string;
+		thousand_separator: string;
+		decimal_separator: string;
+		decimals: number
+		code: string;
+	}
+
+	class GFCurrency {
+		constructor(currency: GFCurrencyConfig);
+		toNumber(text: string): number;
+		toMoney(number: string | number, isNumeric?: boolean): string;
+	}
+
 	interface GFConditionalLogicRuleField {
 		label: string;
 		value: string | number;
@@ -64,6 +88,13 @@ declare global {
 		operator: string;
 		value: number | string;
 	}
+	
+	type GFConditionalLogicOperators = 'is' | 'isnot' | '>' | '<' | 'contains' | 'starts_with' | 'ends_with';
+
+	type GFConditionalLogicLogicType = 'all' | 'any';
+
+
+	type GFConditionalLogicActionType = 'show' | 'hide';
 
 	interface Window {
 		jQuery: JQueryStatic;
@@ -88,6 +119,7 @@ declare global {
 		HasPageField: () => boolean;
 		HasPostField: () => boolean;
 		ToggleMultiFile: (isInit: boolean) => void;
+		ToggleConditionalLogic: (isInit: boolean, objectType: string) => void;
 		GetInputType: (field: GFField) => string;
 		SetFieldPhoneFormat: (format: string) => void;
 
@@ -119,6 +151,10 @@ declare global {
 			) => S;
 		};
 
+		ConditionalLogic: typeof GFConditionalLogic;
+
+		Currency: typeof GFCurrency;
+
 		gformCalculateTotalPrice: (formId: string | number) => void;
 
 		gfMultiFileUploader: {
@@ -133,13 +169,24 @@ declare global {
 			deleteButton: HTMLElement
 		) => void;
 
-		mOxie: any;
+		gformFormatMoney: (text: number | string, isNumeric?: boolean) => string;
+
+		gformToNumber(text: string): number;
+
+		gf_global: {
+			base_url: string;
+			gf_currency_config: GFCurrencyConfig;
+			number_formats: Array<any>; // placeholder
+			spinnerUrl: string;
+			strings: { [key: string]: string };
+			version_hash: string;
+		};
 
 		// Placeholders
+		mOxie: any;
 		gfMergeTagsObj: any;
 		gf_raw_input_change: any;
 		gf_check_field_rule: any;
-		gf_global: any;
 		gf_vars: any;
 		gformInitChosenFields: any;
 		ToggleCalculationOptions: any;
@@ -149,7 +196,6 @@ declare global {
 		gfAjaxSpinner: any;
 		gformIsHidden: any;
 		gf_form_conditional_logic: any;
-		Currency: any;
 		gf_matches_operation: any;
 		gf_apply_rules: any;
 	}
