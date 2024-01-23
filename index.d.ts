@@ -122,6 +122,13 @@ declare global {
 		ToggleConditionalLogic: (isInit: boolean, objectType: string) => void;
 		GetInputType: (field: GFField) => string;
 		SetFieldPhoneFormat: (format: string) => void;
+		GetRuleValuesDropDown: (
+			choices: Array<{ text: string; value: string | number }>,
+			objectType: string,
+			ruleIndex: number,
+			selectedValue: string,
+			inputName: string | false
+		) => string;
 
 		// Frontend
 		gform: {
